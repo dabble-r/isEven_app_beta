@@ -1,7 +1,8 @@
 const numberInput = document.getElementById("number-input");
 const convertBtn = document.getElementById("convert-btn");
 const result = document.getElementById("result");
-const animationContainer = document.getElementById("animation-container");
+//const animationContainer = document.getElementById("animation-container");
+/*
 const animationData = [
   {
     inputVal: 5,
@@ -28,14 +29,19 @@ const animationData = [
     removeElDelay: 10000,
   }
 ];
+*/
+
 const isEven = (input) => {
   if (input === 0) {
-    return 'even';
+    return 'Even';
   } else if (input === 1) {
-    return 'odd';
-  }
+    return 'Odd';
+  } else if (input < 0) {
+    return isEven(input + 2);
+  } 
   return isEven(input - 2);
 }
+
 /*
 const decimalToBinary = (input) => {
   if (input === 0 || input === 1) {
@@ -45,6 +51,7 @@ const decimalToBinary = (input) => {
   }
 };
 */
+/*
 const showAnimation = () => {
   result.innerText = "Call Stack Animation";
 
@@ -70,6 +77,7 @@ const showAnimation = () => {
 result.textContent = decimalToBinary(5);
   }, 20000);
 };
+*/
 
 const checkUserInput = () => {
   const inputInt = parseInt(numberInput.value);
@@ -78,13 +86,13 @@ const checkUserInput = () => {
     alert("Please provide a decimal number");
     return;
   }
-
+/*
   if (inputInt === 5) {
     showAnimation();
     return;
   }
-
-  result.textContent = decimalToBinary(inputInt);
+*/
+  result.textContent = isEven(inputInt);
   numberInput.value = "";
 };
 
